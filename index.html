@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- Standard stuff - uses UTF-8 and the title -->
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <title>CoderDojo - Mobile DHTML application skeleton file</title>
+
+   <!-- -------------------------------- -->
+   <!-- General mobile-friendly settings -->
+   <meta name="HandheldFriendly" content="true" />
+   <!-- How to display the content -->
+   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
+   <!-- On-screen icon: 114px x 114px - despite its name, it works for Android too -->
+   <link rel="apple-touch-icon" href="images/jquery.png" />
+
+   <!-- --------------------- -->
+   <!-- iOS-specifig settings -->
+   <!-- See http://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html -->
+   <!-- Splash screen: 320px x 460px for iPhone -->
+   <link rel="apple-touch-startup-image" href="images/startup.png"/>
+   <!-- Remove address bar, etc. -->
+   <meta name="apple-mobile-web-app-capable" content="yes" />
+   <!-- Set the status bar: styles can also be "black" or "black-translucent" -->
+   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+   <!-- Detect telephone numbers in the web page? -->
+   <meta name="format-detection" content="telephone=no">
+
+   <!-- JQuery Mobile files -->
+    <link rel="stylesheet" href="jquery.mobile-1.3.0.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+    <script src="jquery-1.8.2.min.js"></script>
+    <script src="jquery.mobile-1.3.0.min(1).js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+  
+    <script>
+    // Wait for device API libraries to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Global InAppBrowser reference
+    var iabRef = null;
+
+    function iabLoadStart(event) {
+        alert(event.type + ' - ' + event.url);
+    }
+
+    function iabLoadStop(event) {
+        alert(event.type + ' - ' + event.url);
+    }
+
+    function iabLoadError(event) {
+        alert(event.type + ' - ' + event.message);
+    }
+
+    function iabClose(event) {
+        alert(event.type);
+        iabRef.removeEventListener('loadstart', iabLoadStart);
+        iabRef.removeEventListener('loadstop', iabLoadStop);
+        iabRef.removeEventListener('loaderror', iabLoadError);
+        iabRef.removeEventListener('exit', iabClose);
+    }
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        iabRef = window.open('http://apache.org', '_blank', 'location=yes');
+        iabRef.addEventListener('loadstart', iabLoadStart);
+        iabRef.addEventListener('loadstop', iabLoadStop);
+        iabRef.removeEventListener('loaderror', iabLoadError);
+        iabRef.addEventListener('exit', iabClose);
+    }
+
+</script>
+
+
+</head>
+<body>
+
+ 
+      <!-- The page header -->
+    <div data-role="header" data-theme="b" class="ui-header ui-bar-a" role="banner">
+        <!-- Header content -->
+    <h1 class="ui-title"><font face="Lucida Handwriting"><b><i>Drag "n" Drop</i></b></font></h1>
+    <a href="#" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+    <a href="#" data-icon="search" data-iconpos="notext" data-rel="dialog" data-transition="fade">Search</a>
+        
+     </div>
+     <!-- Header end -->
+      <!-- Page content -->
+
+    <div data-role="content" data-theme="a">
+    <div data-role="collapsible-set" data-content-theme="c">
+    <div data-role="collapsible" data-theme="e" data-content-theme="d">
+    <h3><img src="twitter-icon.png" width="32px" height="32px" /><i><font size="7">Twitter</font></i></h3>
+    <p>a</p>
+              </div> 
+    <div data-role="collapsible" data-theme="e" data-content-theme="d">
+    <h3><img src="facebook-logo.png" width="32px" height="32px" /><i><font size="7">Facebook</font></i></h3>
+    <p>Collapsible content, swatch "a"</p>
+                      </div>
+    <div data-role="collapsible" data-theme="e" data-content-theme="d" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+    <h3><i><font size="5">Section header, swatch E</font></i></h3>
+    <p>Collapsible content, swatch "e"</p>
+    <form>
+    <label for="textinput-s">Text Input:</label>
+    <input name="textinput-s" id="textinput-s" placeholder="Text input" value="" data-clear-btn="true" type="text">
+    <label for="select-native-s">Select:</label>
+    <select name="select-native-s" id="select-native-s">
+    <option value="one">One</option>
+    <option value="two">Two</option>
+    <option value="three">Three</option>
+    <option value="six">Four</option>
+                              </select>
+    <label for="slider-s">Input slider:</label>
+    <input name="slider-s" id="slider-s" value="25" min="0" max="100" data-highlight="true" type="range">
+              </form>
+          </div>
+        </div>
+     </div>
+     <!-- Content end -->
+      <!-- Footer -->
+    <div data-role="footer" data-theme="d" data-position="fixed">
+    <span class="ui-grid-a">
+    <span class="ui-block-a"><a data-role="button" href="http://view.jquerymobile.com/1.3.0/docs/intro/" data-icon="back">About</a></span>
+    <span class="ui-block-b"><a data-role="button" href="http://jquerymobile.com/demos/1.2.0/" data-icon="forward" data-iconpos="right">Full Browser</a></span>
+        </span>
+     </div>
+     <!-- Footer end -->
+   </div>
+  <!-- Page end -->
+</body>
+</html>
